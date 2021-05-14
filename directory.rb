@@ -4,7 +4,7 @@ def input_students
 students = []
 name = gets.chomp
 while !name.empty? do
-  students << {name: name, cohort: :november}
+  students << {name: name, cohort: :november, hobbies: :hobbies, country: :country_of_birth, height: :height}
   puts "Now we have #{students.count} students"
   name = gets.chomp
   end
@@ -17,10 +17,11 @@ def print_header
 end
 
 def print(students)
-  students.each_with_index do |student, value|
-    if student[:name].length < 12 
-    puts "#{value+1}. #{student[:name]} (#{student[:cohort]} cohort)"
-  end
+  student_number = students.length
+  idx = 0
+  until idx == student_number 
+  puts "#{students}"
+  idx += 1
 end
 end
 
