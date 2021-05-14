@@ -20,8 +20,10 @@ def print(students)
   student_number = students.length
   idx = 0
   until idx == student_number 
-  puts "#{students}"
+  students.each_with_index do |students, value| 
+  puts "#{value+1}. #{students[:name].center(20)}"
   idx += 1
+  end
 end
 end
 
