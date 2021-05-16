@@ -2,14 +2,14 @@ def input_students
   puts "Please enter the names of the students"
   puts "To finish, just hit return twice"
 students = []
-name = gets.chomp
-cohort = gets.chomp
+name = gets.strip
+cohort = gets.strip
 cohort = "november" if cohort.empty?
 while !name.empty? do
   students << {name: name, cohort: cohort.to_sym, hobbies: :hobbies}
   students.count == 1 ? puts("Now we have #{students.count} student") : puts("Now we have #{students.count} students")
-  name = gets.chomp
-  cohort = gets.chomp
+  name = gets.strip
+  cohort = gets.strip
   cohort = "november" if cohort.empty?
   end
 students
