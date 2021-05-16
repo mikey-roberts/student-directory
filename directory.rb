@@ -7,7 +7,7 @@ cohort = gets.chomp
 cohort = "november" if cohort.empty?
 while !name.empty? do
   students << {name: name, cohort: cohort.to_sym, hobbies: :hobbies}
-  puts "Now we have #{students.count} students"
+  students.count == 1 ? puts("Now we have #{students.count} student") : puts("Now we have #{students.count} students")
   name = gets.chomp
   cohort = gets.chomp
   cohort = "november" if cohort.empty?
@@ -29,7 +29,7 @@ def print(students)
 end
 
 def print_footer(students)
-  puts "Overall, we have #{students.count} great students"
+students.count == 1 ? puts("Overall, we have #{students.count} great student") : puts("Overall, we have #{students.count} great students")
 end
 
 students = input_students
