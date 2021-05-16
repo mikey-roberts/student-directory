@@ -15,10 +15,6 @@ while !name.empty? do
 students
 end
 
-# def sort_cohort(students)
-#   students.sort_by! {|student| student[:cohort]}
-# end
-
 def print_header
   puts "The students of Villains Academy"
   puts "-------------"
