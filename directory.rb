@@ -4,32 +4,32 @@ def input_students
 students = []
 name = gets.chomp
 cohort = gets.chomp
+cohort = "november" if cohort.empty?
 while !name.empty? do
-  students << {name: name, cohort: cohort.to_sym, hobbies: :hobbies, country: :country_of_birth, height: :height}
+  students << {name: name, cohort: cohort.to_sym, hobbies: :hobbies}
   puts "Now we have #{students.count} students"
   name = gets.chomp
   cohort = gets.chomp
-  if cohort.empty?
-  cohort = "november"
+  cohort = "november" if cohort.empty?
   end
-  end
-students 
+students
 end
+
+# def sort_cohort(students)
+#   students.sort_by! {|student| student[:cohort]}
+# end
 
 def print_header
   puts "The students of Villains Academy"
   puts "-------------"
 end
 
-def print(students)
-  student_number = students.length
-  idx = 0
-  until idx == student_number 
-  students.each_with_index do |students, value| 
-  puts "#{value+1}. #{students[:name].center(20)} (Cohort: #{students[:cohort]})"
-  idx += 1
-  end
+def sort_cohort(students)
+  students.sort_by! {|student| student[:cohort]}
 end
+
+def print(students)
+  students.each {|cohort| puts "#{cohort[:name]} who is in the #{cohort[:cohort]} cohort"}
 end
 
 def print_footer(students)
@@ -38,5 +38,6 @@ end
 
 students = input_students
 print_header
+sort_cohort(students)
 print(students)
 print_footer(students)
