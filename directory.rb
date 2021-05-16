@@ -15,9 +15,11 @@ while !name.empty? do
 students
 end
 
-def print_header
+def print_header(students)
+  if students.count > 0
   puts "The students of Villains Academy"
   puts "-------------"
+  end
 end
 
 def sort_cohort(students)
@@ -29,11 +31,12 @@ def print(students)
 end
 
 def print_footer(students)
+return nil if students.count == 0
 students.count == 1 ? puts("Overall, we have #{students.count} great student") : puts("Overall, we have #{students.count} great students")
 end
 
 students = input_students
-print_header
+print_header(students)
 sort_cohort(students)
 print(students)
 print_footer(students)
