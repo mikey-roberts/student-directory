@@ -3,10 +3,15 @@ def input_students
   puts "To finish, just hit return twice"
 students = []
 name = gets.chomp
+cohort = gets.chomp
 while !name.empty? do
-  students << {name: name, cohort: :november, hobbies: :hobbies, country: :country_of_birth, height: :height}
+  students << {name: name, cohort: cohort.to_sym, hobbies: :hobbies, country: :country_of_birth, height: :height}
   puts "Now we have #{students.count} students"
   name = gets.chomp
+  cohort = gets.chomp
+  if cohort.empty?
+  cohort = "november"
+  end
   end
 students 
 end
@@ -21,7 +26,7 @@ def print(students)
   idx = 0
   until idx == student_number 
   students.each_with_index do |students, value| 
-  puts "#{value+1}. #{students[:name].center(20)}"
+  puts "#{value+1}. #{students[:name].center(20)} (Cohort: #{students[:cohort]})"
   idx += 1
   end
 end
