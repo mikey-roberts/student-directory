@@ -104,7 +104,7 @@ def load_students(filename = "students.csv")
   file.close
 end
 
-def try_load_students
+def try_load_students(filename = "students.csv")
   filename = ARGV.first 
   return if filename.nil? 
   if File.exists?(filename) 
@@ -116,5 +116,5 @@ def try_load_students
   end
 end
 
-try_load_students
+try_load_students("students.csv")
 interactive_menu
