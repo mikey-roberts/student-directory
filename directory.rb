@@ -26,6 +26,7 @@ def process(selection)
   when "4"
     load_students
   when "9"
+    puts "You have exited the program"
     exit
   else
     puts "I don't know what you meant, try again"
@@ -41,7 +42,8 @@ def student_count
 end
 
 def input_students
-  puts "Please enter the names of the students"
+  puts "You have chosen to enter student details"
+  puts "Please enter the names of the students you would like to add"
   puts "To finish, just hit return twice"
 name = STDIN.gets.strip
 while !name.empty? do
@@ -58,6 +60,7 @@ cohort = "november" if cohort.empty?
 end
 
 def show_students
+    puts "You have selected to display the list of students"
     sort_cohort
     print_header
     print_students_list
@@ -86,6 +89,7 @@ return nil if @students.count == 0
 end
 
 def save_students
+  puts "The student list has been saved"
   file = File.open("students.csv", "w")
   @students.each do |student|
     student_data = [student[:name], student[:cohort]]
@@ -96,6 +100,7 @@ def save_students
 end
 
 def load_students(filename = "students.csv")
+  puts "Student list successfully loaded"
   file = File.open(filename, "r")
   file.readlines.each do |line|
   name, cohort = line.chomp.split(',')
