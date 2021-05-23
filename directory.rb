@@ -91,24 +91,24 @@ return nil if @students.count == 0
 end
 
 def save_students(filename)
-  file = File.open(filename, "w")
+  file = File.open(filename, "w") do |file|
   @students.each do |student|
     student_data = [student[:name], student[:cohort]]
     csv_line = student_data.join(",")
     file.puts csv_line
   end
-  puts "The student list has been saved"
-  file.close
+    puts "The student list has been saved"
+  end
 end
 
 def load_students(filename)
-  file = File.open(filename, "r")
+  file = File.open(filename, "r") do |file|
   file.readlines.each do |line|
-  name, cohort = line.chomp.split(',')
-  save_details(name, cohort)
+    name, cohort = line.chomp.split(',')
+    save_details(name, cohort)
   end
-  puts "Student list successfully loaded"
-  file.close
+    puts "Student list successfully loaded"
+  end
 end
 
 def try_load_students(filename)
